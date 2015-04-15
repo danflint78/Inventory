@@ -63,4 +63,7 @@
     <Build Include="Processor.sql" />
     <Build Include="Motherboard.sql" />
   </ItemGroup>
+  <ItemGroup>
+    <PostDeploy Include="Script.PostDeployment1.sql" />
+  </ItemGroup>
 </Project>
