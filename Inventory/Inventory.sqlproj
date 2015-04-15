@@ -60,5 +60,7 @@
   </ItemGroup>
   <ItemGroup>
     <Build Include="Computer.sql" />
+    <Build Include="Processor.sql" />
+    <Build Include="Motherboard.sql" />
   </ItemGroup>
 </Project>
