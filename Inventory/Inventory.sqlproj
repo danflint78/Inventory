@@ -62,6 +62,8 @@
     <Build Include="Computer.sql" />
     <Build Include="Processor.sql" />
     <Build Include="Motherboard.sql" />
+    <Build Include="RAM.sql" />
+    <Build Include="OperatingSystem.sql" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="Script.PostDeployment1.sql" />

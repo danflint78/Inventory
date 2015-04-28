@@ -14,4 +14,4 @@ MERGE INTO Computer AS Target
 USING ( VALUES
 	(1, 'Small PC', 'Ultra-Small Form Factor', '2015-02-16'),
 	(2, 'Desktop PC', 'ATX', '2015-04-22'),
-	(3, 'NUC PC', 'NUC', '2015-03-09')
+	(3, 'NUC PC', 'NUC', '2015-03-09'))

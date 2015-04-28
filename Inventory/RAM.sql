@@ -1,0 +1,11 @@
+﻿CREATE TABLE [dbo].[RAM]
+(
+	[RAMID]	INT	IDENTITY(1, 1)	NOT NULL,
+	[Type]	VARCHAR	NULL,
+	[Speed]	DECIMAL(5,2)	NOT NULL,
+	[ComputerID] INT	NOT NULL,
+	PRIMARY KEY CLUSTERED ([RAMID] ASC), 
+    CONSTRAINT [FK_RAM_Computer] FOREIGN KEY ([ComputerID])
+		REFERENCES [Computer]([ComputerID])
+	
+)
