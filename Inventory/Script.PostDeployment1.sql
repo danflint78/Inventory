@@ -12,6 +12,13 @@ Post-Deployment Script Template
 
 MERGE INTO Computer AS Target
 USING ( VALUES
-	(1, 'Small PC', 'Ultra-Small Form Factor', '2015-02-16'),
-	(2, 'Desktop PC', 'ATX', '2015-04-22'),
-	(3, 'NUC PC', 'NUC', '2015-03-09'))
+	(1, 'Small PC', 'Ultra-Small Form Factor', '2015-02-16', '2015-04-12'),
+	(2, 'Desktop PC', 'ATX', '2015-04-22', '2015-04-25'),
+	(3, 'NUC PC', 'NUC', '2015-03-09', '2015-04-09')
+)
+
+AS Source (ComputerID, Name, FormFactor, PurcahseDate, InstallDate)
+ON Target.ComputerID = Source.ComputerID
+WHEN NOT MATCHED BY TARGET THEN
+INSERT (Name, FormFactor, PurchaseDate, InstallDate)
+VALUES (Name, FormFactor, PurchaseDate, InstallDate);
