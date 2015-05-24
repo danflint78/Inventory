@@ -62,7 +62,7 @@
     <Build Include="Computer.sql" />
     <Build Include="Processor.sql" />
     <Build Include="Motherboard.sql" />
-    <Build Include="RAM.sql" />
+    <Build Include="Ram.sql" />
     <Build Include="OperatingSystem.sql" />
     <Build Include="Harddrive.sql" />
   </ItemGroup>
