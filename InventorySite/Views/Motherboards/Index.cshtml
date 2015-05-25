@@ -1,0 +1,63 @@
+﻿@model IEnumerable<InventorySite.Models.Motherboard>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Make)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Model)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NumberOfDisplayPorts)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NumberOfMemoryPorts)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HasParallelPort)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Computer.Name)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Make)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Model)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NumberOfDisplayPorts)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NumberOfMemoryPorts)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HasParallelPort)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Computer.Name)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.MotherboardID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.MotherboardID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.MotherboardID })
+        </td>
+    </tr>
+}
+
+</table>

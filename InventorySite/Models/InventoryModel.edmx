@@ -1,0 +1,420 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="InventoryModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Computer">
+          <Key>
+            <PropertyRef Name="ComputerID" />
+          </Key>
+          <Property Name="ComputerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="75" Nullable="false" />
+          <Property Name="FormFactor" Type="varchar" MaxLength="50" />
+          <Property Name="PurchaseDate" Type="datetime" />
+          <Property Name="InstallDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Harddrive">
+          <Key>
+            <PropertyRef Name="HarddriveID" />
+          </Key>
+          <Property Name="HarddriveID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Type" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Capacity" Type="int" Nullable="false" />
+          <Property Name="ComputerID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Motherboard">
+          <Key>
+            <PropertyRef Name="MotherboardID" />
+          </Key>
+          <Property Name="MotherboardID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Make" Type="varchar" MaxLength="50" />
+          <Property Name="Model" Type="varchar" MaxLength="50" />
+          <Property Name="NumberOfDisplayPorts" Type="int" />
+          <Property Name="NumberOfMemoryPorts" Type="int" />
+          <Property Name="HasParallelPort" Type="bit" Nullable="false" />
+          <Property Name="ComputerID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OperatingSystem">
+          <Key>
+            <PropertyRef Name="OperatingSystemID" />
+          </Key>
+          <Property Name="OperatingSystemID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="Version" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Architecture" Type="int" Nullable="false" />
+          <Property Name="ComputerID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Processor">
+          <Key>
+            <PropertyRef Name="ProcessorID" />
+          </Key>
+          <Property Name="ProcessorID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Make" Type="varchar" MaxLength="50" />
+          <Property Name="Model" Type="varchar" MaxLength="50" />
+          <Property Name="NumberOfCores" Type="int" />
+          <Property Name="Speed" Type="decimal" Precision="3" Scale="2" />
+          <Property Name="ComputerID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RAM">
+          <Key>
+            <PropertyRef Name="RamID" />
+          </Key>
+          <Property Name="RamID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Type" Type="varchar" MaxLength="50" />
+          <Property Name="Speed" Type="int" Nullable="false" />
+          <Property Name="Amount" Type="int" Nullable="false" />
+          <Property Name="ComputerID" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Harddrive_Computer">
+          <End Role="Computer" Type="Self.Computer" Multiplicity="1" />
+          <End Role="Harddrive" Type="Self.Harddrive" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Computer">
+              <PropertyRef Name="ComputerID" />
+            </Principal>
+            <Dependent Role="Harddrive">
+              <PropertyRef Name="ComputerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Motherboard_Computer">
+          <End Role="Computer" Type="Self.Computer" Multiplicity="1" />
+          <End Role="Motherboard" Type="Self.Motherboard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Computer">
+              <PropertyRef Name="ComputerID" />
+            </Principal>
+            <Dependent Role="Motherboard">
+              <PropertyRef Name="ComputerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OperatingSystem_Computer">
+          <End Role="Computer" Type="Self.Computer" Multiplicity="1" />
+          <End Role="OperatingSystem" Type="Self.OperatingSystem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Computer">
+              <PropertyRef Name="ComputerID" />
+            </Principal>
+            <Dependent Role="OperatingSystem">
+              <PropertyRef Name="ComputerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Processor_Computer">
+          <End Role="Computer" Type="Self.Computer" Multiplicity="1" />
+          <End Role="Processor" Type="Self.Processor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Computer">
+              <PropertyRef Name="ComputerID" />
+            </Principal>
+            <Dependent Role="Processor">
+              <PropertyRef Name="ComputerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RAM_Computer">
+          <End Role="Computer" Type="Self.Computer" Multiplicity="1" />
+          <End Role="RAM" Type="Self.RAM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Computer">
+              <PropertyRef Name="ComputerID" />
+            </Principal>
+            <Dependent Role="RAM">
+              <PropertyRef Name="ComputerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="InventoryModelStoreContainer">
+          <EntitySet Name="Computer" EntityType="Self.Computer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Harddrive" EntityType="Self.Harddrive" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Motherboard" EntityType="Self.Motherboard" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OperatingSystem" EntityType="Self.OperatingSystem" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Processor" EntityType="Self.Processor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RAM" EntityType="Self.RAM" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Harddrive_Computer" Association="Self.FK_Harddrive_Computer">
+            <End Role="Computer" EntitySet="Computer" />
+            <End Role="Harddrive" EntitySet="Harddrive" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Motherboard_Computer" Association="Self.FK_Motherboard_Computer">
+            <End Role="Computer" EntitySet="Computer" />
+            <End Role="Motherboard" EntitySet="Motherboard" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OperatingSystem_Computer" Association="Self.FK_OperatingSystem_Computer">
+            <End Role="Computer" EntitySet="Computer" />
+            <End Role="OperatingSystem" EntitySet="OperatingSystem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Processor_Computer" Association="Self.FK_Processor_Computer">
+            <End Role="Computer" EntitySet="Computer" />
+            <End Role="Processor" EntitySet="Processor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RAM_Computer" Association="Self.FK_RAM_Computer">
+            <End Role="Computer" EntitySet="Computer" />
+            <End Role="RAM" EntitySet="RAM" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="InventoryModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Computer">
+          <Key>
+            <PropertyRef Name="ComputerID" />
+          </Key>
+          <Property Name="ComputerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="75" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FormFactor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PurchaseDate" Type="DateTime" Precision="3" />
+          <Property Name="InstallDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Harddrives" Relationship="Self.FK_Harddrive_Computer" FromRole="Computer" ToRole="Harddrive" />
+          <NavigationProperty Name="Motherboards" Relationship="Self.FK_Motherboard_Computer" FromRole="Computer" ToRole="Motherboard" />
+          <NavigationProperty Name="OperatingSystems" Relationship="Self.FK_OperatingSystem_Computer" FromRole="Computer" ToRole="OperatingSystem" />
+          <NavigationProperty Name="Processors" Relationship="Self.FK_Processor_Computer" FromRole="Computer" ToRole="Processor" />
+          <NavigationProperty Name="RAMs" Relationship="Self.FK_RAM_Computer" FromRole="Computer" ToRole="RAM" />
+        </EntityType>
+        <EntityType Name="Harddrive">
+          <Key>
+            <PropertyRef Name="HarddriveID" />
+          </Key>
+          <Property Name="HarddriveID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Capacity" Type="Int32" Nullable="false" />
+          <Property Name="ComputerID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Computer" Relationship="Self.FK_Harddrive_Computer" FromRole="Harddrive" ToRole="Computer" />
+        </EntityType>
+        <EntityType Name="Motherboard">
+          <Key>
+            <PropertyRef Name="MotherboardID" />
+          </Key>
+          <Property Name="MotherboardID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Make" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Model" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NumberOfDisplayPorts" Type="Int32" />
+          <Property Name="NumberOfMemoryPorts" Type="Int32" />
+          <Property Name="HasParallelPort" Type="Boolean" Nullable="false" />
+          <Property Name="ComputerID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Computer" Relationship="Self.FK_Motherboard_Computer" FromRole="Motherboard" ToRole="Computer" />
+        </EntityType>
+        <EntityType Name="OperatingSystem">
+          <Key>
+            <PropertyRef Name="OperatingSystemID" />
+          </Key>
+          <Property Name="OperatingSystemID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Version" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Architecture" Type="Int32" Nullable="false" />
+          <Property Name="ComputerID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Computer" Relationship="Self.FK_OperatingSystem_Computer" FromRole="OperatingSystem" ToRole="Computer" />
+        </EntityType>
+        <EntityType Name="Processor">
+          <Key>
+            <PropertyRef Name="ProcessorID" />
+          </Key>
+          <Property Name="ProcessorID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Make" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Model" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NumberOfCores" Type="Int32" />
+          <Property Name="Speed" Type="Decimal" Precision="3" Scale="2" />
+          <Property Name="ComputerID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Computer" Relationship="Self.FK_Processor_Computer" FromRole="Processor" ToRole="Computer" />
+        </EntityType>
+        <EntityType Name="RAM">
+          <Key>
+            <PropertyRef Name="RamID" />
+          </Key>
+          <Property Name="RamID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Speed" Type="Int32" Nullable="false" />
+          <Property Name="Amount" Type="Int32" Nullable="false" />
+          <Property Name="ComputerID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Computer" Relationship="Self.FK_RAM_Computer" FromRole="RAM" ToRole="Computer" />
+        </EntityType>
+        <Association Name="FK_Harddrive_Computer">
+          <End Role="Computer" Type="Self.Computer" Multiplicity="1" />
+          <End Role="Harddrive" Type="Self.Harddrive" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Computer">
+              <PropertyRef Name="ComputerID" />
+            </Principal>
+            <Dependent Role="Harddrive">
+              <PropertyRef Name="ComputerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Motherboard_Computer">
+          <End Role="Computer" Type="Self.Computer" Multiplicity="1" />
+          <End Role="Motherboard" Type="Self.Motherboard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Computer">
+              <PropertyRef Name="ComputerID" />
+            </Principal>
+            <Dependent Role="Motherboard">
+              <PropertyRef Name="ComputerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OperatingSystem_Computer">
+          <End Role="Computer" Type="Self.Computer" Multiplicity="1" />
+          <End Role="OperatingSystem" Type="Self.OperatingSystem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Computer">
+              <PropertyRef Name="ComputerID" />
+            </Principal>
+            <Dependent Role="OperatingSystem">
+              <PropertyRef Name="ComputerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Processor_Computer">
+          <End Role="Computer" Type="Self.Computer" Multiplicity="1" />
+          <End Role="Processor" Type="Self.Processor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Computer">
+              <PropertyRef Name="ComputerID" />
+            </Principal>
+            <Dependent Role="Processor">
+              <PropertyRef Name="ComputerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RAM_Computer">
+          <End Role="Computer" Type="Self.Computer" Multiplicity="1" />
+          <End Role="RAM" Type="Self.RAM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Computer">
+              <PropertyRef Name="ComputerID" />
+            </Principal>
+            <Dependent Role="RAM">
+              <PropertyRef Name="ComputerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="InventoryEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Computers" EntityType="Self.Computer" />
+          <EntitySet Name="Harddrives" EntityType="Self.Harddrive" />
+          <EntitySet Name="Motherboards" EntityType="Self.Motherboard" />
+          <EntitySet Name="OperatingSystems" EntityType="Self.OperatingSystem" />
+          <EntitySet Name="Processors" EntityType="Self.Processor" />
+          <EntitySet Name="RAMs" EntityType="Self.RAM" />
+          <AssociationSet Name="FK_Harddrive_Computer" Association="Self.FK_Harddrive_Computer">
+            <End Role="Computer" EntitySet="Computers" />
+            <End Role="Harddrive" EntitySet="Harddrives" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Motherboard_Computer" Association="Self.FK_Motherboard_Computer">
+            <End Role="Computer" EntitySet="Computers" />
+            <End Role="Motherboard" EntitySet="Motherboards" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OperatingSystem_Computer" Association="Self.FK_OperatingSystem_Computer">
+            <End Role="Computer" EntitySet="Computers" />
+            <End Role="OperatingSystem" EntitySet="OperatingSystems" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Processor_Computer" Association="Self.FK_Processor_Computer">
+            <End Role="Computer" EntitySet="Computers" />
+            <End Role="Processor" EntitySet="Processors" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RAM_Computer" Association="Self.FK_RAM_Computer">
+            <End Role="Computer" EntitySet="Computers" />
+            <End Role="RAM" EntitySet="RAMs" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="InventoryModelStoreContainer" CdmEntityContainer="InventoryEntities">
+          <EntitySetMapping Name="Computers">
+            <EntityTypeMapping TypeName="InventoryModel.Computer">
+              <MappingFragment StoreEntitySet="Computer">
+                <ScalarProperty Name="ComputerID" ColumnName="ComputerID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="FormFactor" ColumnName="FormFactor" />
+                <ScalarProperty Name="PurchaseDate" ColumnName="PurchaseDate" />
+                <ScalarProperty Name="InstallDate" ColumnName="InstallDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Harddrives">
+            <EntityTypeMapping TypeName="InventoryModel.Harddrive">
+              <MappingFragment StoreEntitySet="Harddrive">
+                <ScalarProperty Name="HarddriveID" ColumnName="HarddriveID" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Capacity" ColumnName="Capacity" />
+                <ScalarProperty Name="ComputerID" ColumnName="ComputerID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Motherboards">
+            <EntityTypeMapping TypeName="InventoryModel.Motherboard">
+              <MappingFragment StoreEntitySet="Motherboard">
+                <ScalarProperty Name="MotherboardID" ColumnName="MotherboardID" />
+                <ScalarProperty Name="Make" ColumnName="Make" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="NumberOfDisplayPorts" ColumnName="NumberOfDisplayPorts" />
+                <ScalarProperty Name="NumberOfMemoryPorts" ColumnName="NumberOfMemoryPorts" />
+                <ScalarProperty Name="HasParallelPort" ColumnName="HasParallelPort" />
+                <ScalarProperty Name="ComputerID" ColumnName="ComputerID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OperatingSystems">
+            <EntityTypeMapping TypeName="InventoryModel.OperatingSystem">
+              <MappingFragment StoreEntitySet="OperatingSystem">
+                <ScalarProperty Name="OperatingSystemID" ColumnName="OperatingSystemID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Version" ColumnName="Version" />
+                <ScalarProperty Name="Architecture" ColumnName="Architecture" />
+                <ScalarProperty Name="ComputerID" ColumnName="ComputerID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Processors">
+            <EntityTypeMapping TypeName="InventoryModel.Processor">
+              <MappingFragment StoreEntitySet="Processor">
+                <ScalarProperty Name="ProcessorID" ColumnName="ProcessorID" />
+                <ScalarProperty Name="Make" ColumnName="Make" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="NumberOfCores" ColumnName="NumberOfCores" />
+                <ScalarProperty Name="Speed" ColumnName="Speed" />
+                <ScalarProperty Name="ComputerID" ColumnName="ComputerID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RAMs">
+            <EntityTypeMapping TypeName="InventoryModel.RAM">
+              <MappingFragment StoreEntitySet="RAM">
+                <ScalarProperty Name="RamID" ColumnName="RamID" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Speed" ColumnName="Speed" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="ComputerID" ColumnName="ComputerID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
