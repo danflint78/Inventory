@@ -7,7 +7,7 @@
 <h2>Details</h2>
 
 <div>
-    <h4>Computer</h4>
+    <h3>Computer</h3>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -52,96 +52,103 @@
 
     </dl>
 
-    <table class="table">
-        <tr>
-            <th>
-                Name
-            </th>
-            <th>
-                Architecture
-            </th>
-        </tr>
+    <div class="row">
 
-        @foreach (var item in Model.OperatingSystems)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Name)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Architecture)
-                </td>
-            </tr>
-        }
+            <h4>Operating System</h4>
+            <table class="table">
+                <tr>
+                    <th>
+                        Name
+                    </th>
+                    <th>
+                        Architecture
+                    </th>
+                </tr>
 
-    </table>
+                @foreach (var item in Model.OperatingSystems)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Architecture)
+                        </td>
+                    </tr>
+                }
 
-    <table class="table">
-        <tr>
-            <th>
-                Type
-            </th>
-            <th>
-                Capacity
-            </th>
-        </tr>
+            </table>
 
-        @foreach (var item in Model.Harddrives)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Type)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Capacity)
-                </td>
-            </tr>
-        }
+            <h4>Hard Drive</h4>
+            <table class="table">
+                <tr>
+                    <th>
+                        Type
+                    </th>
+                    <th>
+                        Capacity
+                    </th>
+                </tr>
 
-    </table>
+                @foreach (var item in Model.Harddrives)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Type)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Capacity)
+                        </td>
+                    </tr>
+                }
 
-    <table class="table">
-        <tr>
-            <th>
-                Make
-            </th>
-            <th>
-                Model
-            </th>
-            <th>
-                Number of Display Ports
-            </th>
-            <th>
-                Number of Memory Ports
-            </th>
-            <th>
-                Has a Parallel Port
-            </th>
-        </tr>
+            </table>
 
-        @foreach (var item in Model.Motherboards)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Make)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Model)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.NumberOfDisplayPorts)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.NumberOfMemoryPorts)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.HasParallelPort)
-                </td>
-            </tr>
-        }
+            <h4>Motherboard</h4>
+            <table class="table">
+                <tr>
+                    <th>
+                        Make
+                    </th>
+                    <th>
+                        Model
+                    </th>
+                    <th>
+                        Number of Display Ports
+                    </th>
+                    <th>
+                        Number of Memory Ports
+                    </th>
+                    <th>
+                        Has a Parallel Port
+                    </th>
+                </tr>
 
-    </table>
+                @foreach (var item in Model.Motherboards)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Make)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Model)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.NumberOfDisplayPorts)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.NumberOfMemoryPorts)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.HasParallelPort)
+                        </td>
+                    </tr>
+                }
 
+            </table>
+        </div>
+
+    </div>
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.ComputerID }) |
