@@ -46,7 +46,7 @@ namespace InventorySite.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ComputerID,Name,FormFactor,PurchaseDate,InstallDate")] Computer computer)
+        public ActionResult Create([Bind(Include = "ComputerID,Name,FormFactor,PurchaseDate,InstallDate,PrimaryMac")] Computer computer)
         {
             if (ModelState.IsValid)
             {
@@ -78,7 +78,7 @@ namespace InventorySite.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ComputerID,Name,FormFactor,PurchaseDate,InstallDate")] Computer computer)
+        public ActionResult Edit([Bind(Include = "ComputerID,Name,FormFactor,PurchaseDate,InstallDate,PrimaryMac")] Computer computer)
         {
             if (ModelState.IsValid)
             {

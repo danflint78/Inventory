@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="InventoryModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="InventoryModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Computer">
           <Key>
             <PropertyRef Name="ComputerID" />
@@ -12,6 +12,7 @@
           <Property Name="ComputerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="varchar" MaxLength="75" Nullable="false" />
           <Property Name="FormFactor" Type="varchar" MaxLength="50" />
+          <Property Name="PrimaryMac" Type="varchar" MaxLength="50" />
           <Property Name="PurchaseDate" Type="datetime" />
           <Property Name="InstallDate" Type="datetime" />
         </EntityType>
@@ -155,8 +156,7 @@
             <End Role="RAM" EntitySet="RAM" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="InventoryModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -174,6 +174,7 @@
           <NavigationProperty Name="OperatingSystems" Relationship="Self.FK_OperatingSystem_Computer" FromRole="Computer" ToRole="OperatingSystem" />
           <NavigationProperty Name="Processors" Relationship="Self.FK_Processor_Computer" FromRole="Computer" ToRole="Processor" />
           <NavigationProperty Name="RAMs" Relationship="Self.FK_RAM_Computer" FromRole="Computer" ToRole="RAM" />
+          <Property Name="PrimaryMac" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Harddrive">
           <Key>
@@ -329,6 +330,7 @@
           <EntitySetMapping Name="Computers">
             <EntityTypeMapping TypeName="InventoryModel.Computer">
               <MappingFragment StoreEntitySet="Computer">
+                <ScalarProperty Name="PrimaryMac" ColumnName="PrimaryMac" />
                 <ScalarProperty Name="ComputerID" ColumnName="ComputerID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="FormFactor" ColumnName="FormFactor" />

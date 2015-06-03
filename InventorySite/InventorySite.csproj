@@ -286,11 +286,6 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Computers\Create.cshtml" />
-    <Content Include="Views\Computers\Delete.cshtml" />
-    <Content Include="Views\Computers\Details.cshtml" />
-    <Content Include="Views\Computers\Edit.cshtml" />
-    <Content Include="Views\Computers\Index.cshtml" />
     <Content Include="Views\Harddrives\Create.cshtml" />
     <Content Include="Views\Harddrives\Delete.cshtml" />
     <Content Include="Views\Harddrives\Details.cshtml" />
@@ -316,6 +311,11 @@
     <Content Include="Views\RAMs\Details.cshtml" />
     <Content Include="Views\RAMs\Edit.cshtml" />
     <Content Include="Views\RAMs\Index.cshtml" />
+    <Content Include="Views\Computers\Create.cshtml" />
+    <Content Include="Views\Computers\Delete.cshtml" />
+    <Content Include="Views\Computers\Details.cshtml" />
+    <Content Include="Views\Computers\Edit.cshtml" />
+    <Content Include="Views\Computers\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

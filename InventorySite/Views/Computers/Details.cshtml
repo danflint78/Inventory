@@ -42,7 +42,82 @@
             @Html.DisplayFor(model => model.InstallDate)
         </dd>
 
+        <dt>
+            @Html.DisplayNameFor(model => model.PrimaryMac)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PrimaryMac)
+        </dd>
+
     </dl>
+
+    <table class="table">
+        <tr>
+            <th>
+                Type
+            </th>
+            <th>
+                Capacity
+            </th>
+        </tr>
+
+        @foreach (var item in Model.Harddrives)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Type)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Capacity)
+                </td>
+            </tr>
+        }
+
+    </table>
+
+    <table class="table">
+        <tr>
+            <th>
+                Make
+            </th>
+            <th>
+                Model
+            </th>
+            <th>
+                Number of Display Ports
+            </th>
+            <th>
+                Number of Memory Ports
+            </th>
+            <th>
+                Has a Parallel Port
+            </th>
+        </tr>
+
+        @foreach (var item in Model.Motherboards)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Make)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Model)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NumberOfDisplayPorts)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NumberOfMemoryPorts)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HasParallelPort)
+                </td>
+            </tr>
+        }
+
+    </table>
+
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.ComputerID }) |

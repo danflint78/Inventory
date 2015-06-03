@@ -28,6 +28,7 @@ namespace InventorySite.Models
         public string FormFactor { get; set; }
         public Nullable<System.DateTime> PurchaseDate { get; set; }
         public Nullable<System.DateTime> InstallDate { get; set; }
+        public string PrimaryMac { get; set; }
     
         public virtual ICollection<Harddrive> Harddrives { get; set; }
         public virtual ICollection<Motherboard> Motherboards { get; set; }
