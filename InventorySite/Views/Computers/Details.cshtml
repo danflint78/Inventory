@@ -55,6 +55,30 @@
     <table class="table">
         <tr>
             <th>
+                Name
+            </th>
+            <th>
+                Architecture
+            </th>
+        </tr>
+
+        @foreach (var item in Model.OperatingSystems)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Architecture)
+                </td>
+            </tr>
+        }
+
+    </table>
+
+    <table class="table">
+        <tr>
+            <th>
                 Type
             </th>
             <th>
