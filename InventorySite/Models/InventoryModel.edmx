@@ -10,7 +10,7 @@
             <PropertyRef Name="ComputerID" />
           </Key>
           <Property Name="ComputerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Name" Type="varchar" MaxLength="75" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="FormFactor" Type="varchar" MaxLength="50" />
           <Property Name="PrimaryMac" Type="varchar" MaxLength="50" />
           <Property Name="PurchaseDate" Type="datetime" />
@@ -165,7 +165,7 @@
             <PropertyRef Name="ComputerID" />
           </Key>
           <Property Name="ComputerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="75" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="FormFactor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="PurchaseDate" Type="DateTime" Precision="3" />
           <Property Name="InstallDate" Type="DateTime" Precision="3" />
@@ -184,7 +184,7 @@
           <Property Name="Type" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Capacity" Type="Int32" Nullable="false" />
           <Property Name="ComputerID" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Computer" Relationship="Self.FK_Harddrive_Computer" FromRole="Harddrive" ToRole="Computer" />
+          <NavigationProperty Name="Computer" Relationship="InventoryModel.FK_Harddrive_Computer" FromRole="Harddrive" ToRole="Computer" />
         </EntityType>
         <EntityType Name="Motherboard">
           <Key>
@@ -197,7 +197,7 @@
           <Property Name="NumberOfMemoryPorts" Type="Int32" />
           <Property Name="HasParallelPort" Type="Boolean" Nullable="false" />
           <Property Name="ComputerID" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Computer" Relationship="Self.FK_Motherboard_Computer" FromRole="Motherboard" ToRole="Computer" />
+          <NavigationProperty Name="Computer" Relationship="InventoryModel.FK_Motherboard_Computer" FromRole="Motherboard" ToRole="Computer" />
         </EntityType>
         <EntityType Name="OperatingSystem">
           <Key>
