@@ -21,7 +21,7 @@
             <PropertyRef Name="HarddriveID" />
           </Key>
           <Property Name="HarddriveID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Type" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Type" Type="varchar" MaxLength="25" Nullable="false" />
           <Property Name="Capacity" Type="int" Nullable="false" />
           <Property Name="ComputerID" Type="int" Nullable="false" />
         </EntityType>
@@ -170,7 +170,7 @@
           <Property Name="PurchaseDate" Type="DateTime" Precision="3" />
           <Property Name="InstallDate" Type="DateTime" Precision="3" />
           <NavigationProperty Name="Harddrives" Relationship="Self.FK_Harddrive_Computer" FromRole="Computer" ToRole="Harddrive" />
-          <NavigationProperty Name="Motherboards" Relationship="Self.FK_Motherboard_Computer" FromRole="Computer" ToRole="Motherboard" />
+          <NavigationProperty Name="Motherboards" Relationship="InventoryModel.FK_Motherboard_Computer" FromRole="Computer" ToRole="Motherboard" />
           <NavigationProperty Name="OperatingSystems" Relationship="Self.FK_OperatingSystem_Computer" FromRole="Computer" ToRole="OperatingSystem" />
           <NavigationProperty Name="Processors" Relationship="Self.FK_Processor_Computer" FromRole="Computer" ToRole="Processor" />
           <NavigationProperty Name="RAMs" Relationship="Self.FK_RAM_Computer" FromRole="Computer" ToRole="RAM" />
@@ -181,7 +181,7 @@
             <PropertyRef Name="HarddriveID" />
           </Key>
           <Property Name="HarddriveID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Type" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Capacity" Type="Int32" Nullable="false" />
           <Property Name="ComputerID" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Computer" Relationship="Self.FK_Harddrive_Computer" FromRole="Harddrive" ToRole="Computer" />

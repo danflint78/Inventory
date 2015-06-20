@@ -1,7 +1,7 @@
 ﻿CREATE TABLE [dbo].[Computer]
 (
 	[ComputerID]	INT	IDENTITY(1, 1)	NOT NULL,
-	[Name]	VARCHAR(75)	NOT NULL,
+	[Name]	VARCHAR(50)	NOT NULL,
 	[FormFactor]	VARCHAR(50)	NULL,
 	[PrimaryMac]	VARCHAR(50) NULL,
 	[PurchaseDate]	DATETIME	NULL,
