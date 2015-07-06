@@ -4934,8 +4934,10 @@ a.list-group-item.active > .badge,
   font-weight: 200;
   line-height: 2.1428571435;
   color: inherit;
-  background-color: #eeeeee;
-  /*background-image:url('../Content/Images/LogoLarge.jpg');*/
+  background-color: #fff;
+  background-image: url('../Content/Images/LogoLarge.jpg');
+  background-repeat: no-repeat;
+  background-position: right;
 }
 
 .jumbotron h1 {
