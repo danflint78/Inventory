@@ -4172,6 +4172,11 @@ textarea.input-group-sm > .input-group-btn > .btn {
   right: 0;
   left: 0;
   border-width: 0 0 1px;
+  
+  background-color: #fff;
+  background-image: url('../Content/Images/LogoLarge.jpg');
+  background-repeat: no-repeat;
+  background-position: left;
 }
 
 @media (min-width: 768px) {
@@ -4934,10 +4939,6 @@ a.list-group-item.active > .badge,
   font-weight: 200;
   line-height: 2.1428571435;
   color: inherit;
-  background-color: #fff;
-  background-image: url('../Content/Images/LogoLarge.jpg');
-  background-repeat: no-repeat;
-  background-position: right;
 }
 
 .jumbotron h1 {
