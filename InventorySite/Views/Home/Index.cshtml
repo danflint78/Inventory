@@ -8,40 +8,87 @@
     <p><a href="http://www.wcchs.net" class="btn btn-primary btn-xs">WCCHS Website &raquo;</a></p>
 </div>
 
-<div>
-    @Html.ActionLink("List of computers", "Index", "Computers")<br />
-    @Html.ActionLink("List of hard drives", "Index", "Harddrives")<br />
-    @Html.ActionLink("List of motherboards", "Index", "Motherboards")<br />
-    @Html.ActionLink("List of operating systems", "Index", "OperatingSystems")<br />
-    @Html.ActionLink("List of processors", "Index", "Processors")<br />
-    @Html.ActionLink("List of RAM", "Index", "RAMs")<br />
-</div>
+<div class="row">
+    <div class="col-md-6">
+        @Html.ActionLink("List of computers", "Index", "Computers")<br />
+        @Html.ActionLink("List of hard drives", "Index", "Harddrives")<br />
+        @Html.ActionLink("List of motherboards", "Index", "Motherboards")<br />
+        @Html.ActionLink("List of operating systems", "Index", "OperatingSystems")<br />
+        @Html.ActionLink("List of processors", "Index", "Processors")<br />
+        @Html.ActionLink("List of RAM", "Index", "RAMs")<br />
+    </div>
 
-<div id="slideshow">
-    <img src="~/Content/Images/Server.jpg" width="320" height="304" style="position:absolute;" class="active" />
-    <img src="~/Content/Images/NUC.jpg" width="320" height="304" style="position:absolute;" />
-    <img src="~/Content/Images/DesktopPC.jpg" width="320" height="304" style="position:absolute;" />
-    <img src="~/Content/Images/Laptop.jpg" width="320" height="304" style="position:absolute;" />
+    <div id="slideshow">
+        <div id="window">
+            <div class="slide">
+                <img src="~/Content/Images/Server.jpg" width="320" height="304" />
+            </div>
+
+            <div class="slide">
+                <img src="~/Content/Images/NUC.jpg" width="320" height="304" />
+            </div>
+
+            <div class="slide">
+                <img src="~/Content/Images/DesktopPC.jpg" width="320" height="304" />
+            </div>
+
+            <div class="slide">
+                <img src="~/Content/Images/Laptop.jpg" width="320" height="304" />
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var currentPosition = 0;
+            var slideWidth = 320;
+            var slides = $('.slide');
+            var numberOfSlides = slides.length;
+            var slideInterval;
+            var speed = 3500;
+
+            slideInterval = setInterval(changePosition, speed);
+
+            slides.wrapAll('div id ="slidesHolder"></div>')
+            slides.css({ 'float': 'left' });
+            $('#slidesHolder').css('width', slideWidth * numberOfSlides);
+
+            function changePosition() {
+                if (currentPosition == numberOfSlides) {
+                    currentPosition = 1;
+                }
+                else {
+                    currentPosition++;
+                }
+                moveSlide();
+            }
+
+            function moveSlide() {
+                $('#slideHolder').animate({ 'marginLeft': 'slideWidth' * (-currentPosition) });
+            }
+        });
+    </script>
+
 </div>
 
 @*<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-    </div>
-</div>*@
+        <div class="col-md-4">
+            <h2>Getting started</h2>
+            <p>
+                ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
+                enables a clean separation of concerns and gives you full control over markup
+                for enjoyable, agile development.
+            </p>
+            <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+            <h2>Get more libraries</h2>
+            <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
+            <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+            <h2>Web Hosting</h2>
+            <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
+            <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+        </div>
+    </div>*@

@@ -22,3 +22,21 @@ select,
 textarea {
     max-width: 280px;
 }
+
+#slideshow #window {
+    width:320px;
+    height:304px;
+    margin:0;
+    padding:0;
+    position:relative;
+    overflow:hidden;
+}
+
+#slideshow #window .slide {
+    width:320px;
+    height:304px;
+    margin:0;
+    padding:0;
+    position:relative;
+    float:left;
+}
