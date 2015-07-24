@@ -49,13 +49,13 @@
 
             slideInterval = setInterval(changePosition, speed);
 
-            slides.wrapAll('div id ="slidesHolder"></div>')
+            slides.wrapAll('<div id="slidesHolder"></div>')
             slides.css({ 'float': 'left' });
             $('#slidesHolder').css('width', slideWidth * numberOfSlides);
 
             function changePosition() {
-                if (currentPosition == numberOfSlides) {
-                    currentPosition = 1;
+                if (currentPosition == numberOfSlides - 1) {
+                    currentPosition = 0;
                 }
                 else {
                     currentPosition++;
@@ -64,7 +64,7 @@
             }
 
             function moveSlide() {
-                $('#slideHolder').animate({ 'marginLeft': 'slideWidth' * (-currentPosition) });
+                $('#slidesHolder').animate({ 'marginLeft' : slideWidth * (-currentPosition) });
             }
         });
     </script>
