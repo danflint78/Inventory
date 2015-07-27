@@ -40,3 +40,24 @@ textarea {
     position:relative;
     float:left;
 }
+
+@media (min-width: 768px) {
+  .navbar-header2 {
+    float: left;
+  }
+}
+
+.login {
+    float : right;
+    
+}
+
+.navbar-nav-custom {
+  margin: 7.5px -15px;
+  max-height: 45px;
+}
+
+.footer-info {
+    float : right;
+}
+

@@ -12,7 +12,7 @@
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
-            <div class="navbar-header">
+            <div class="navbar-header2">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
@@ -23,10 +23,16 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("List of computers", "Index", "Computers")</li>
+                    <li>@Html.ActionLink("List of hard drives", "Index", "Harddrives")</li>
+                    <li>@Html.ActionLink("List of motherboards", "Index", "Motherboards")</li>
+                    <li>@Html.ActionLink("List of operating systems", "Index", "OperatingSystems")</li>
+                    <li>@Html.ActionLink("List of processors", "Index", "Processors")</li>
+                    <li>@Html.ActionLink("List of RAM", "Index", "RAMs")</li>
                 </ul>
-                @Html.Partial("_LoginPartial")
+                <div class="login">
+                    @Html.Partial("_LoginPartial")
+                </div>
             </div>
         </div>
     </div>
@@ -34,7 +40,13 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - Inventory MVC Application</p>
+                <div class="col-md-10">
+                    &copy; @DateTime.Now.Year - Inventory Application
+                </div>
+                <div class="footer-info col-md-2">
+                    @Html.ActionLink("About", "About", "Home")
+                    @Html.ActionLink("Contact", "Contact", "Home")
+                </div>
         </footer>
     </div>
 

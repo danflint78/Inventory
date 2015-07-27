@@ -4200,7 +4200,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
   float: left;
   padding: 15px 15px;
   font-size: 18px;
-  line-height: 20px;
+  line-height: 10px;
 }
 
 .navbar-brand:hover,
@@ -4245,7 +4245,9 @@ textarea.input-group-sm > .input-group-btn > .btn {
 
 .navbar-nav {
   margin: 7.5px -15px;
+  max-height: 45px;
 }
+/*Had to specify max-height to no interfere with .jumobtron*/
 
 .navbar-nav > li > a {
   padding-top: 10px;
@@ -4935,6 +4937,7 @@ a.list-group-item.active > .badge,
 .jumbotron {
   padding: 30px;
   margin-bottom: 30px;
+  margin-top: 30px;
   font-size: 21px;
   font-weight: 200;
   line-height: 2.1428571435;
