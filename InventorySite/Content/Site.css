@@ -57,7 +57,16 @@ textarea {
   max-height: 45px;
 }
 
-.footer-info {
-    float : right;
+#left {
+    float : left;
+    width : 75%;
+    padding : 2px;
+    overflow:hidden;
 }
 
+#right {
+    float : left;
+    width : 25%;
+    padding : 2px;
+    overflow:hidden;
+}

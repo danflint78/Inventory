@@ -40,13 +40,13 @@
         @RenderBody()
         <hr />
         <footer>
-                <div class="col-md-10">
-                    &copy; @DateTime.Now.Year - Inventory Application
-                </div>
-                <div class="footer-info col-md-2">
-                    @Html.ActionLink("About", "About", "Home")
-                    @Html.ActionLink("Contact", "Contact", "Home")
-                </div>
+            <div id="left">
+                &copy; @DateTime.Now.Year - Inventory Application
+            </div>
+            <div id="right">
+                @Html.ActionLink("About", "About", "Home")
+                @Html.ActionLink("Contact", "Contact", "Home")
+            </div>
         </footer>
     </div>
 
