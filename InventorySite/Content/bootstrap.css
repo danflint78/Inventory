@@ -4244,8 +4244,8 @@ textarea.input-group-sm > .input-group-btn > .btn {
 }
 
 .navbar-nav {
-  margin: 7.5px -15px;
-  max-height: 45px;
+    margin: 7.5px -15px;
+    max-height: 45px;
 }
 /*Had to specify max-height to no interfere with .jumobtron*/
 
@@ -4513,7 +4513,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
 }
 
 .navbar-inverse .navbar-brand {
-  color: #999999;
+  color: #a1bc49;
 }
 
 .navbar-inverse .navbar-brand:hover,
@@ -4527,7 +4527,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
 }
 
 .navbar-inverse .navbar-nav > li > a {
-  color: #999999;
+  color: #cef550;
 }
 
 .navbar-inverse .navbar-nav > li > a:hover,
