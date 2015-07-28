@@ -498,7 +498,7 @@ h6 small,
 h1,
 h2,
 h3 {
-  margin-top: 20px;
+  margin-top: 40px;
   margin-bottom: 10px;
 }
 
@@ -4245,7 +4245,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
 
 .navbar-nav {
     margin: 7.5px -15px;
-    max-height: 45px;
+    max-height: 35px;
 }
 /*Had to specify max-height to no interfere with .jumobtron*/
 
