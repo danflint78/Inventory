@@ -498,7 +498,8 @@ h6 small,
 h1,
 h2,
 h3 {
-  margin-top: 40px;
+  padding-top: 60px;
+  margin-top: 20px;
   margin-bottom: 10px;
 }
 
@@ -1416,6 +1417,7 @@ th {
 .table {
   width: 100%;
   margin-bottom: 20px;
+  table-layout: fixed;
 }
 
 .table thead > tr > th,
@@ -1424,10 +1426,13 @@ th {
 .table thead > tr > td,
 .table tbody > tr > td,
 .table tfoot > tr > td {
-  padding: 8px;
+  padding: 6px;
   line-height: 1.428571429;
   vertical-align: top;
   border-top: 1px solid #dddddd;
+  border-bottom: 1px solid #dddddd;
+  border-left: 1px solid #dddddd;
+  border-right: 1px solid #dddddd;
 }
 
 .table thead > tr > th {
@@ -4245,7 +4250,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
 
 .navbar-nav {
     margin: 7.5px -15px;
-    max-height: 35px;
+    max-height: 45px;
 }
 /*Had to specify max-height to no interfere with .jumobtron*/
 

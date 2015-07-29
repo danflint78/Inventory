@@ -102,7 +102,72 @@
         }
     </table>
 
+    <h4>RAM</h4>
+    <table class="table">
+        <tr>
+            <th>
+                Type
+            </th>
+            <th>
+                Speed
+            </th>
+            <th>
+                Amount
+            </th>
+        </tr>
 
+        @foreach (var item in Model.RAMs)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Type)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Speed)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Amount)
+                </td>
+            </tr>
+        }
+
+    </table>
+
+    <h4>Processor</h4>
+    <table class="table">
+        <tr>
+            <th>
+                Make
+            </th>
+            <th>
+                Model
+            </th>
+            <th>
+                Number of Cores
+            </th>
+            <th>
+                Speed
+            </th>
+        </tr>
+
+        @foreach (var item in Model.Processors)
+            {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Make)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Model)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NumberOfCores)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Speed)
+                </td>
+            </tr>
+        }
+    </table>
 
     <h4>Motherboard</h4>
     <table class="table">
@@ -145,76 +210,6 @@
             </tr>
         }
     </table>
-
-    <h4>Processor</h4>
-    <table class="table">
-        <tr>
-            <th>
-                Make
-            </th>
-            <th>
-                Model
-            </th>
-            <th>
-                Number of Cores
-            </th>
-            <th>
-                Speed
-            </th>
-        </tr>
-
-        @foreach (var item in Model.Processors)
-            {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Make)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Model)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.NumberOfCores)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Speed)
-                </td>
-                <td>
-            </tr>
-        }
-    </table>
-
-    <h4>RAM</h4>
-    <table class="table">
-        <tr>
-            <th>
-                Type
-            </th>
-            <th>
-                Speed
-            </th>
-            <th>
-                Amount
-            </th>
-        </tr>
-
-        @foreach (var item in Model.RAMs)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Type)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Speed)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Amount)
-                </td>
-            </tr>
-        }
-
-    </table>
-
-
 
 </div>
 <p>
